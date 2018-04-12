@@ -1,0 +1,7 @@
+C:\Users\g16n6925\source\repos\Morabaraba-9001\Morabaraba-9001\bin\Debug\Morabaraba-9001.exe.config
+C:\Users\g16n6925\source\repos\Morabaraba-9001\Morabaraba-9001\bin\Debug\Morabaraba-9001.exe
+C:\Users\g16n6925\source\repos\Morabaraba-9001\Morabaraba-9001\bin\Debug\Morabaraba-9001.pdb
+C:\Users\g16n6925\source\repos\Morabaraba-9001\Morabaraba-9001\obj\Debug\Morabaraba-9001.csprojResolveAssemblyReference.cache
+C:\Users\g16n6925\source\repos\Morabaraba-9001\Morabaraba-9001\obj\Debug\Morabaraba-9001.csproj.CoreCompileInputs.cache
+C:\Users\g16n6925\source\repos\Morabaraba-9001\Morabaraba-9001\obj\Debug\Morabaraba-9001.exe
+C:\Users\g16n6925\source\repos\Morabaraba-9001\Morabaraba-9001\obj\Debug\Morabaraba-9001.pdb
