@@ -9,7 +9,27 @@ namespace Morabaraba.Test
     [TestFixture]
     public class Test
     {
+        public static List<string> board = new List<string>()
+        {
+            "  1  2  3   4   5  6  7  \n",
+            "A O ------- O ------- O  \n",  //A1 =[1][2]    A4=[1][12]      A7=[1][22]
+            "  | '       |       ' |  \n",
+            "B |  O ---- O ---- O  |  \n",  //B2 =[3][5]    B4=[3][12]      B6=[3][19]
+            "  |  | '    |   '  |  |  \n",
+            "C |  |  O - O - O  |  |  \n",  //C3 =[5][8]    C4 =[5][12]     C5=[5][16]
+            "  |  |  |       |  |  |  \n",
+            "D O -O- O       O -O- O  \n",  //D1=[7][2]     D2=[7][5]       D3=[7][8]     D5=[7][16]     D6=[7][19]    D7=[7][22]
+            "  |  |  |       |  |  |  \n",
+            "E |  |  O - O - O  |  |  \n",  //E3=[9][8]     E4=[9][12]      E5=[9][16]
+            "  |  | '    |    ' |  |  \n",
+            "F |  O ---- O ---- O  |  \n",  //F2=[11][5]    F4=[11][12]     F6=[11][19]    
+            "  | '       |       ' |  \n",
+            "G O ------- O ------- O  \n\n"  //G1=[13][2]   G4=[13][12]     G7=[13][22]
+        };
+
+
         public static List<string> Positions = new List<string> { "A1", "A4", "A7", "B2", "B4", "B6", "C3", "C4", "C5", "D1", "D2", "D3", "D5", "D6", "D7", "E3", "E4", "E5", "F2", "F4", "F6", "G1", "G4", "G7" };
+
 
 
         public static bool Empty(List<string> board, string pos)
@@ -261,5 +281,21 @@ namespace Morabaraba.Test
             }
             Assert.That(testPass == true);
         }
+
+        [Test]
+        public void blackPlayerStarts()
+        {
+
+        }
+
+        [Test]
+        public void cowPlacementOnEmptySpace()
+        {
+
+        }
+
+
+        [Test]
+        public void 
     }
 }
