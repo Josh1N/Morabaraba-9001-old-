@@ -1171,7 +1171,18 @@ namespace Morabaraba.Test
         [Test]
         public void cowPlacementOnEmptySpace()
         {
-
+            bool empty = true;
+            foreach(string s in availablePositions)
+            {
+                if(black.positionsHeld.Contains(s) || white.positionsHeld.Contains(s))
+                {
+                    empty = false;
+                    break;
+                }
+                
+            }
+            Assert.That(empty == true);
+    
         }
 
         [Test]
