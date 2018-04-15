@@ -1,0 +1,12 @@
+language: csharp
+solution: Checkers.sln
+dotnet: 2.1.4
+script:
+  - dotnet test Checkers.Test
+matrix:
+  include:
+    - dotnet: 2.0.0
+    - dotnet: 2.0.2
+    - dotnet: 2.1.4
+               os: osx
+
