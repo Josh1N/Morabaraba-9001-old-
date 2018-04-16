@@ -29,7 +29,7 @@ namespace Morabaraba.Test
             char posC4 = rowC[12];
             char posC5 = rowC[16];
 
-            string rowD = board[6];
+            string rowD = board[7];
             char posD1 = rowD[2];
             char posD2 = rowD[5];
             char posD3 = rowD[8];
@@ -37,17 +37,17 @@ namespace Morabaraba.Test
             char posD6 = rowD[19];
             char posD7 = rowD[22];
 
-            string rowE = board[7];
+            string rowE = board[9];
             char posE3 = rowE[8];
             char posE4 = rowE[12];
             char posE5 = rowE[16];
 
-            string rowF = board[8];
+            string rowF = board[11];
             char posF2 = rowF[5];
             char posF4 = rowF[12];
             char posF6 = rowF[19];
 
-            string rowG = board[9];
+            string rowG = board[13];
             char posG1 = rowG[2];
             char posG4 = rowG[12];
             char posG7 = rowG[22];
