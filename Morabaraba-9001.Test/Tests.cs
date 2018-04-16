@@ -233,6 +233,7 @@ namespace Morabaraba.Test
             }
         }
 
+
         //Placement testing 
         /*
          * When the game starts, the board is empty
@@ -245,8 +246,9 @@ namespace Morabaraba.Test
 
         [Test]
         public void gameStart()
-        {
+        {   
             IGame g = new Game();
+          //  Morabaraba_2.Player.state();
             bool testPass = true;
             foreach (string pos in g.PPositions)
             {
@@ -277,33 +279,41 @@ namespace Morabaraba.Test
             mocked.Received().runGame(Arg.Any<Morabaraba_2.Player>());
         }
 
+
+
         [Test]
         public void cowPlacementOnEmptySpace()
         {
-            //bool empty = true;
-            //foreach(string s in availablePositions)
-            //{
-            //    if(black.positionsHeld.Contains(s) || white.positionsHeld.Contains(s))
-            //    {
-            //        empty = false;
-            //        break;
-            //    }
-                
-            //}
-            //Assert.That(empty == true);
-    
+            //arrange
+            IGame mocked = Substitute.For<IGame>();
+            Program.g = mocked;
+            
+            //act
+            Program.Main(new string[0]);
+            //assert
+            //mocked.Received().ValidPos(Arg.Is<List<string>>(args => args[0] == Morabaraba_2.));
         }
 
         [Test]
-        public void twelveCowsPerPlayer(Player player)
+        public void twelveCowsPerPlayer()
         {
-            Assert.That(player.onBoard <= 12);
+            //arrange
+            IGame mocked = Substitute.For<IGame>();
+            Program.g = mocked;
+            //act
+            Program.Main(new string[0]);
+            
+            //assert
+            Assert.That(mocked.Black.unPlaced == 12);
+            Assert.That(mocked.White.unPlaced == 12);
         }
 
         [Test]
         public void cantMovePlacedCows()
         {
+            bool f = false;
 
+            Assert.That(f = false);
         }
 
         /*
@@ -313,22 +323,36 @@ namespace Morabaraba.Test
          * ■ Moving does not increase or decrease the number of cows on theboard
          * 
          */
+
+        static object[] adjacentPlace =
+        {
+            //new object[] { ava.Black, 1, new int[] {5, 6} },
+            //new object[] { Color.Black, 2, new int[] {6, 7} },
+
+        };
+
+
+
         [Test]
         public void canOnlyMoveToAdjacentPlace()
         {
 
+            bool f = false;
+            Assert.That(f = false);
         }
 
         [Test]
         public void canOnlyMoveToEmptySpace()
         {
-
+            bool f = false;
+            Assert.That(f = false);
         }
 
         [Test]
         public void numberOfCowsOnBoardDoesntChange()
         {
-
+            bool f = false;
+            Assert.That(f = false);
         }
 
         //During flying,
@@ -336,7 +360,8 @@ namespace Morabaraba.Test
         [Test]
         public void canFly()
         {
-
+            bool f = false;
+            Assert.That(f = false);
         }
 
         /*In general,
@@ -357,61 +382,71 @@ namespace Morabaraba.Test
         [Test]
         public void millsFormed()
         {
-
+            bool f = false;
+            Assert.That(f = false);
         }
 
         [Test]
         public void millNotFormed()
         {
-
+            bool f = false;
+            Assert.That(f = false);
         }
 
         [Test]
         public void onlyKillWhenMillFormed()
         {
-
+            bool f = false;
+            Assert.That(f = false);
         }
 
         [Test]
         public void cannotKillMillCows()
         {
-
+            bool f = false;
+            Assert.That(f = false);
         }
 
         [Test]
         public void canKillMIllCows()
         {
-
+            bool f = false;
+            Assert.That(f = false);
         }
 
         [Test]
         public void cantKillOwnCow()
         {
-
+            bool f = false;
+            Assert.That(f = false);
         }
 
         [Test]
         public void cannotShootEmptySpace()
         {
-
+            bool f = false;
+            Assert.That(f = false);
         }
 
         [Test]
         public void deadCowsRemoved()
         {
-
+            bool f = false;
+            Assert.That(f = false);
         }
 
         [Test]
         public void winCantMove()
         {
-
+            bool f = false;
+            Assert.That(f = false);
         }
 
         [Test]
         public void winLessThanTwoCows()
         {
-
+            bool f = false;
+            Assert.That(f = false);
         }
     }
 }

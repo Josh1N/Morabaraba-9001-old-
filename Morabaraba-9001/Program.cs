@@ -33,11 +33,14 @@ namespace Morabaraba_2
         //for the Positions list, when a player selects a position we can change that position to B or W to update the board and use the availablePositions list to add and remove positions that have been played
         public List<string> Positions = new List<string> { "A1", "A4", "A7", "B2", "B4", "B6", "C3", "C4", "C5", "D1", "D2", "D3", "D5", "D6", "D7", "E3", "E4", "E5", "F2", "F4", "F6", "G1", "G4", "G7" };
         public List<string> PPositions { get => Positions; }
+
         public List<string> availablePositions = new List<string> { "A1", "A4", "A7", "B2", "B4", "B6", "C3", "C4", "C5", "D1", "D2", "D3", "D5", "D6", "D7", "E3", "E4", "E5", "F2", "F4", "F6", "G1", "G4", "G7" };
+        public List<string> availablePPosition { get => availablePositions; }
 
         public Player black = new Player();
         public Player white = new Player();
         public Player Black { get => black; }
+        public Player White { get => white; }
 
 
         public bool ValidPos(string pos)
@@ -67,7 +70,7 @@ namespace Morabaraba_2
 
         }
 
-        void ifElse(string ans, Player currentPlayer)
+        public void ifElse(string ans, Player currentPlayer)
         {
             if (ValidPos(ans))
             {
