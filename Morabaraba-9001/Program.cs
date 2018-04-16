@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Morabaraba_2
 {
-    class Program
+    public class Game : IGame
     {
         /*  
    *  okay so i havent got much done but its something. 
@@ -31,14 +31,16 @@ namespace Morabaraba_2
    *         
    */
         //for the Positions list, when a player selects a position we can change that position to B or W to update the board and use the availablePositions list to add and remove positions that have been played
-        public static List<string> Positions = new List<string> { "A1", "A4", "A7", "B2", "B4", "B6", "C3", "C4", "C5", "D1", "D2", "D3", "D5", "D6", "D7", "E3", "E4", "E5", "F2", "F4", "F6", "G1", "G4", "G7" };
-        public static List<string> availablePositions = new List<string> { "A1", "A4", "A7", "B2", "B4", "B6", "C3", "C4", "C5", "D1", "D2", "D3", "D5", "D6", "D7", "E3", "E4", "E5", "F2", "F4", "F6", "G1", "G4", "G7" };
+        public List<string> Positions = new List<string> { "A1", "A4", "A7", "B2", "B4", "B6", "C3", "C4", "C5", "D1", "D2", "D3", "D5", "D6", "D7", "E3", "E4", "E5", "F2", "F4", "F6", "G1", "G4", "G7" };
+        public List<string> PPositions { get => Positions; }
+        public List<string> availablePositions = new List<string> { "A1", "A4", "A7", "B2", "B4", "B6", "C3", "C4", "C5", "D1", "D2", "D3", "D5", "D6", "D7", "E3", "E4", "E5", "F2", "F4", "F6", "G1", "G4", "G7" };
 
-        public static Player black = new Player();
-        public static Player white = new Player();
+        public Player black = new Player();
+        public Player white = new Player();
+        public Player Black { get => black; }
 
 
-        public static bool ValidPos(string pos)
+        public bool ValidPos(string pos)
         {
             if (availablePositions.Contains(pos))
             {
@@ -48,7 +50,7 @@ namespace Morabaraba_2
         }
 
 
-        public static Player SwitchPlayer(Player x)
+        public Player SwitchPlayer(Player x)
         {
             //first check if position is valid then
 
@@ -65,7 +67,7 @@ namespace Morabaraba_2
 
         }
 
-        static void ifElse(string ans, Player currentPlayer)
+        void ifElse(string ans, Player currentPlayer)
         {
             if (ValidPos(ans))
             {
@@ -96,7 +98,7 @@ namespace Morabaraba_2
             }
         }
 
-        static void checkPlayerState(Player currentPlayer)
+        void checkPlayerState(Player currentPlayer)
         {
             if (currentPlayer.unPlaced > 0)
             {
@@ -125,31 +127,31 @@ namespace Morabaraba_2
         }
 
         // have a named array for each possible mill
-        static string[] m0 = new string[] { "A1", "A4", "A7" };
-        static string[] m1 = new string[] { "B2", "B4", "B6" };
-        static string[] m2 = new string[] { "C3", "C4", "C5" };
-        static string[] m3 = new string[] { "D1", "D2", "D3" };
-        static string[] m4 = new string[] { "D5", "D6", "D7" };
-        static string[] m5 = new string[] { "E3", "E4", "E5" };
-        static string[] m6 = new string[] { "F2", "F4", "F6" };
-        static string[] m7 = new string[] { "G1", "G4", "G7" };
-        static string[] m8 = new string[] { "A1", "D1", "G1" };
-        static string[] m9 = new string[] { "B2", "D2", "F2" };
-        static string[] m10 = new string[] { "C3", "D3", "E3" };
-        static string[] m11 = new string[] { "A4", "B4", "C4" };
-        static string[] m12 = new string[] { "E4", "F4", "G4" };
-        static string[] m13 = new string[] { "C5", "D5", "E5" };
-        static string[] m14 = new string[] { "B6", "D6", "F6" };
-        static string[] m15 = new string[] { "A7", "D7", "G7" };
-        static string[] m16 = new string[] { "A1", "B2", "C3" };
-        static string[] m17 = new string[] { "A7", "B6", "C5" };
-        static string[] m18 = new string[] { "G1", "F2", "E3" };
-        static string[] m19 = new string[] { "G7", "F6", "E5" };
+        string[] m0 = new string[] { "A1", "A4", "A7" };
+        string[] m1 = new string[] { "B2", "B4", "B6" };
+        string[] m2 = new string[] { "C3", "C4", "C5" };
+        string[] m3 = new string[] { "D1", "D2", "D3" };
+        string[] m4 = new string[] { "D5", "D6", "D7" };
+        string[] m5 = new string[] { "E3", "E4", "E5" };
+        string[] m6 = new string[] { "F2", "F4", "F6" };
+        string[] m7 = new string[] { "G1", "G4", "G7" };
+        string[] m8 = new string[] { "A1", "D1", "G1" };
+        string[] m9 = new string[] { "B2", "D2", "F2" };
+        string[] m10 = new string[] { "C3", "D3", "E3" };
+        string[] m11 = new string[] { "A4", "B4", "C4" };
+        string[] m12 = new string[] { "E4", "F4", "G4" };
+        string[] m13 = new string[] { "C5", "D5", "E5" };
+        string[] m14 = new string[] { "B6", "D6", "F6" };
+        string[] m15 = new string[] { "A7", "D7", "G7" };
+        string[] m16 = new string[] { "A1", "B2", "C3" };
+        string[] m17 = new string[] { "A7", "B6", "C5" };
+        string[] m18 = new string[] { "G1", "F2", "E3" };
+        string[] m19 = new string[] { "G7", "F6", "E5" };
 
         // put mill arrays into a list
-        static List<string[]> availableMills = new List<string[]> { m0, m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11, m12, m13, m14, m15, m16, m17, m18, m19 };
+        List<string[]> availableMills;
 
-        static void checkMills(Player currentPlayer)
+        void checkMills(Player currentPlayer)
         {
             // go through player's positionsHeld list to see if they have any of the mills
             // if they do, remove mill from list and add to player's personal mill list 
@@ -197,7 +199,7 @@ namespace Morabaraba_2
             }
         }
 
-        public static void Killing(List<string> board, string pos, Player currentPlayer)
+        public void Killing(List<string> board, string pos, Player currentPlayer)
         {
 
             string rowA = board[1];
@@ -438,7 +440,7 @@ namespace Morabaraba_2
             }
         }
 
-        static string[] check(string ans, Player player)
+        string[] check(string ans, Player player)
         {
             foreach (string[] mill in player.playerMills)
             {
@@ -452,7 +454,7 @@ namespace Morabaraba_2
             return null;
         }
 
-        static void millKill(Player currentPlayer)
+        void millKill(Player currentPlayer)
         {
             // after player has killed with a mill, that mill should be added to another list which indicates that it may not be used again immediately 
 
@@ -516,7 +518,7 @@ namespace Morabaraba_2
             }
         }
 
-        static bool chackAdjacency(string ans, string ans1)
+        bool chackAdjacency(string ans, string ans1)
         {
             bool adjacent = false;
 
@@ -542,7 +544,7 @@ namespace Morabaraba_2
             }
         }
 
-        static void runGame(Player currentPlayer)
+        public void runGame(Player currentPlayer)
         {
             checkPlayerState(currentPlayer);
             checkMills(currentPlayer);
@@ -629,13 +631,15 @@ namespace Morabaraba_2
         }
 
 
-        static void printInstructions()
+        public void printInstructions()
         {
             Console.Write("Morabaraba Game Instructions\n\nHOW TO START\n1. 	To start you need the Morabaraba game board. \n	The board starts empty, each player holding all his pieces (or 'cows') \n	in hand.\n2. 	Each player has 12 cows. One player plays white, \n	the other black.\n\nRULES\n1. 	The gameboard for Morabaraba.\n2. 	When a player is reduced to 3 pieces, his pieces are free \n	to move to any unoccupied point (or 'fly'), instead of being restricted \n	to adjacent points as earlier in the game.\n\nGAMEPLAY\n1. 	At first, each player in turn puts one piece on the board, \n	at any vacant point.\n2. 	Once all pieces are on the board, a player now moves one of \n	his pieces along a marked line to an adjacent empty point.\n3. 	If a piece placed or moved forms a row of three along a marked\n 	line (This is called a mill), he can take one of his opponent's \n	pieces (ie. kill an oponents 'cow'), as long as that piece is not itself part of a mill.\n4. 	If when capturing, all opposing pieces have formed mills, then\n 	any of the pieces may be captured.\n\nHOW TO WIN\n1. 	The goal of the game is to reduce your opponent's pieces to as\n 	little as possible.\n2. 	A player wins the game when his opponent is reduced to 2 pieces \n	and is thus unable to form a mill or make any further captures.\n3. 	If the board is filled in the first phase, and no pieces taken, \n	the second phase will be gridlocked with neither player able to move.\n 	In this case the game is draw.\n\n");
+            Console.WriteLine("Press Enter to begin the game:");
+            Console.ReadLine();
         }
 
 
-        public static List<string> board = new List<string>()
+        public List<string> board = new List<string>()
         {
             "  1  2  3   4   5  6  7  \n",
             "A O ------- O ------- O  \n",  //A1 =[1][2]    A4=[1][12]      A7=[1][22]
@@ -652,9 +656,10 @@ namespace Morabaraba_2
             "  | '       |       ' |  \n",
             "G O ------- O ------- O  \n\n"  //G1=[13][2]   G4=[13][12]     G7=[13][22]
         };
+        public List<string> Board { get => board; }
 
 
-        public static void printGameBoard(List<string> var)
+        public void printGameBoard(List<string> var)
         {
             // prints list of strings for each row of the board
             // strings in the list can be updated via their index whenever the board changes 
@@ -668,7 +673,7 @@ namespace Morabaraba_2
         }
 
 
-        public static void Placing(List<string> board, string pos, Player currentPlayer)
+        public void Placing(List<string> board, string pos, Player currentPlayer)
         {
 
             string rowA = board[1];
@@ -909,12 +914,9 @@ namespace Morabaraba_2
             }
         }
 
-
-        static void Main(string[] args)
+        public Game()
         {
-            printInstructions();
-            Console.WriteLine("Press Enter to begin the game:");
-            Console.ReadLine();
+            availableMills = new List<string[]> { m0, m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11, m12, m13, m14, m15, m16, m17, m18, m19 };
 
             black.name = "Black";
             white.name = "White";
@@ -936,9 +938,21 @@ namespace Morabaraba_2
 
             black.positionsHeld = new List<string>();
             white.positionsHeld = new List<string>();
+        }
+    }
 
-            printGameBoard(board);
-            runGame(black);
+    public class Program {
+        public static IGame g = null;
+        public static void Main(string[] args)
+        {
+            if (g == null)
+            {
+                g = new Game();
+            }
+            g.printInstructions();
+            
+            g.printGameBoard(g.Board);
+            g.runGame(g.Black);
             // an object of type player needs to be created 
             // run game is where everything should happen
         }
