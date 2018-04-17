@@ -14,5 +14,6 @@ namespace Morabaraba_2
         Player White { get; }
         List<string> PPositions { get; }
         List<string> availablePPosition { get; }
+        
     }
 }

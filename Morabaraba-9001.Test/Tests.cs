@@ -299,13 +299,18 @@ namespace Morabaraba.Test
         {
             //arrange
             IGame mocked = Substitute.For<IGame>();
+            IGame g = new Game();
             Program.g = mocked;
             //act
             Program.Main(new string[0]);
             
+            mocked.runGame(mocked.Black);
+            int blackCount = mocked.Black.unPlaced;
+            mocked.runGame(mocked.White); 
+            int whiteCount = mocked.White.unPlaced;          
             //assert
-            Assert.That(mocked.Black.unPlaced == 12);
-            Assert.That(mocked.White.unPlaced == 12);
+            Assert.That(blackCount == 12);
+            Assert.That(whiteCount == 12);
         }
 
         [Test]
