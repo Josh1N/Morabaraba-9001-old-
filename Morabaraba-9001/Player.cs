@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Morabaraba_2
 {
-    public class Player
+    public class Player : IPlayer
     {
         public int onBoard { get; set; }
 
