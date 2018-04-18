@@ -266,7 +266,19 @@ namespace Morabaraba.Test
             Assert.That(testPass == true);
         }
 
-      
+        [Test]
+        public void blackPlayerStarts()
+        {
+            //arrange
+            IGame mocked = Substitute.For<IGame>();
+            Program.g = mocked; // use the mocked thing
+            //act
+            Program.Main(new string[0]);
+            //assert
+            var whatevs_srs_yo = mocked.Received(1).Black;
+            mocked.Received().runGame(Arg.Any<Morabaraba_2.Player>());
+        }
+
 
 
         [Test]
